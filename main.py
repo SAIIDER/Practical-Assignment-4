@@ -27,3 +27,10 @@ def create_array(rows, cols):
             return None
         else:
             print("Неверный ввод.")
+
+def view_array(arr):
+    if arr is None:
+        print("\nМассив еще не создан!")
+    else:
+        print("\nТекущий массив:")
+        print(arr)
