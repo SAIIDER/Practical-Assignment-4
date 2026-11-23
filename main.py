@@ -34,3 +34,9 @@ def view_array(arr):
     else:
         print("\nТекущий массив:")
         print(arr)
+
+def func_1(arr):
+    res = arr.copy()
+    res[res < 10] = 42
+    print("\nРезультат (элементы < 10 заменены на 42):")
+    print(res)
