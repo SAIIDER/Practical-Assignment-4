@@ -40,3 +40,12 @@ def func_1(arr):
     res[res < 10] = 42
     print("\nРезультат (элементы < 10 заменены на 42):")
     print(res)
+
+def func_3(arr):
+    indices = np.argwhere(arr < 0)
+    print("\nИндексы отрицательных элементов (строка, столбец):")
+    if len(indices) == 0:
+        print("Отрицательных элементов нет.")
+    else:
+        for idx in indices:
+            print(f"[{idx[0]}][{idx[1]}]")
