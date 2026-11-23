@@ -1,36 +1,36 @@
 import numpy as np
 
 def input_size():
-    rows = int(input("Введите количество строк (высоту): "))
-    cols = int(input("Введите количество столбцов (ширину): "))
+    rows = int(input("Введите количество строк: "))
+    cols = int(input("Введите количество столбцов: "))
     return rows, cols
 
 def create_array(rows, cols):
     while True:
-        print("\n--- Создание массива ---")
-        print("1. Вручную")
-        print("2. Автоматически (случайные числа от 0 до 100)")
-        print("3. Назад")
+        print("\nСоздание массива")
+        print("1) Вручную")
+        print("2) Автоматически (случайные числа от 0 до 100)")
+        print("3) Назад")
         choice = input("Выберите вариант: ")
         if choice == "1":
             arr = np.zeros((rows, cols), dtype=int)
             for i in range(rows):
                 for j in range(cols):
                     arr[i, j] = int(input(f"Введите элемент [{i}][{j}]: "))
-            print("Массив успешно создан!")
+            print("Массив успешно создан")
             return arr
         elif choice == "2":
             arr = np.random.randint(0, 101, size=(rows, cols))
-            print("Массив успешно сгенерирован!")
+            print("Массив успешно сгенерирован")
             return arr
         elif choice == "3":
             return None
         else:
-            print("Неверный ввод.")
+            print("Неверный ввод")
 
 def view_array(arr):
     if arr is None:
-        print("\nМассив еще не создан!")
+        print("\nМассив еще не создан")
     else:
         print("\nТекущий массив:")
         print(arr)
@@ -43,7 +43,7 @@ def func_1(arr):
 
 def func_3(arr):
     indices = np.argwhere(arr < 0)
-    print("\nИндексы отрицательных элементов (строка, столбец):")
+    print("\nИндексы отрицательных элементов:")
     if len(indices) == 0:
         print("Отрицательных элементов нет.")
     else:
@@ -65,10 +65,10 @@ def func_21(arr):
 
 def functions_menu(arr):
     if arr is None:
-        print("\nСначала создайте массив!")
+        print("\nСначала создайте массив")
         return
     while True:
-        print("\n--- Выполнение функций ---")
+        print("\nФункции")
         print("а) Заменить элементы меньше 10 числом 42 (Функция 1)")
         print("б) Напечатать индексы отрицательных элементов (Функция 3)")
         print("в) Вычислить сумму элементов каждого столбца и строки (Функция 6)")
@@ -82,13 +82,13 @@ def functions_menu(arr):
         elif choice == "г": func_7(arr)
         elif choice == "д": func_21(arr)
         elif choice == "е": break
-        else: print("Неверный пункт меню.")
+        else: print("Такого нету")
 
 def main():
     rows, cols = 3, 3
     arr = None
     while True:
-        print("\n=== ГЛАВНОЕ МЕНЮ ===")
+        print("\nМЕНЮ")
         print(f"1. Ввод размера массива (текущий: {rows}x{cols})")
         print("2. Создание массива")
         print("3. Просмотр созданного массива")
@@ -104,9 +104,9 @@ def main():
         elif choice == "3": view_array(arr)
         elif choice == "4": functions_menu(arr)
         elif choice == "5":
-            print("Завершение работы.")
+            print("Завершение работы")
             break
-        else: print("Неверный ввод.")
+        else: print("Неверный ввод")
 
 if __name__ == "__main__":
     main()
