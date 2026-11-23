@@ -53,3 +53,7 @@ def func_3(arr):
 def func_6(arr):
     print("\nСуммы по строкам:", arr.sum(axis=1))
     print("Суммы по столбцам:", arr.sum(axis=0))
+
+def func_7(arr):
+    print("\nГлавная диагональ:", np.diag(arr))
+    print("Побочная диагональ:", np.diag(np.fliplr(arr)))
