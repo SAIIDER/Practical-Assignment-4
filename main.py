@@ -49,3 +49,7 @@ def func_3(arr):
     else:
         for idx in indices:
             print(f"[{idx[0]}][{idx[1]}]")
+
+def func_6(arr):
+    print("\nСуммы по строкам:", arr.sum(axis=1))
+    print("Суммы по столбцам:", arr.sum(axis=0))
