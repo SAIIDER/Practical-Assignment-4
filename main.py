@@ -1,19 +1,29 @@
 import numpy as np
 
-def main():
-    rows, cols = 3, 3
-    arr = None
-    while True:
-        print("\n=== ГЛАВНОЕ МЕНЮ ===")
-        print(f"1. Ввод размера массива (текущий: {rows}x{cols})")
-        print("2. Создание массива")
-        print("3. Просмотр созданного массива")
-        print("4. Выполнение функций")
-        print("5. Выход")
-        choice = input("Выберите пункт меню: ")
-        if choice == "5":
-            print("Завершение работы.")
-            break
+def input_size():
+    rows = int(input("Введите количество строк (высоту): "))
+    cols = int(input("Введите количество столбцов (ширину): "))
+    return rows, cols
 
-if __name__ == "__main__":
-    main()
+def create_array(rows, cols):
+    while True:
+        print("\n--- Создание массива ---")
+        print("1. Вручную")
+        print("2. Автоматически (случайные числа от 0 до 100)")
+        print("3. Назад")
+        choice = input("Выберите вариант: ")
+        if choice == "1":
+            arr = np.zeros((rows, cols), dtype=int)
+            for i in range(rows):
+                for j in range(cols):
+                    arr[i, j] = int(input(f"Введите элемент [{i}][{j}]: "))
+            print("Массив успешно создан!")
+            return arr
+        elif choice == "2":
+            arr = np.random.randint(0, 101, size=(rows, cols))
+            print("Массив успешно сгенерирован!")
+            return arr
+        elif choice == "3":
+            return None
+        else:
+            print("Неверный ввод.")
